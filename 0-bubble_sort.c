@@ -1,7 +1,5 @@
 #include "sort.h"
 
-
-
 /**
  * swap - function to swap array numbers
  * @a: first number
@@ -9,11 +7,11 @@
  */
 void swap(int *a, int *b)
 {
-	int tmp = *b;
+    int tmp = *b;
 
-	*b = *a;
+    *b = *a;
 
-	*a = tmp;
+    *a = tmp;
 }
 
 /**
@@ -23,26 +21,24 @@ void swap(int *a, int *b)
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, swapped, length = size;
+    size_t i, swapped, length = size;
 
-	while (1)
-	{
-		swapped = 0;
-		for (i = 1; i < size; i++)
-		{
-			if (array[i - 1] > array[i])
-			{
-				swap((array + (i - 1)), (array + i));
-				print_array(array, length);
-				swapped = 1;
-			}
+    while (size >= 2)
+    {
+        swapped = 0;
+        for (i = 1; i < size; i++)
+        {
+            if (array[i - 1] > array[i])
+            {
+                swap((array + (i - 1)), (array + i));
+                print_array(array, length);
+                swapped = 1;
+            }
+        }
 
-		}
+        size--;
 
-		size--;
-
-		if (swapped == 0)
-			return;
-	}
-
+        if (swapped == 0)
+            return;
+    }
 }
