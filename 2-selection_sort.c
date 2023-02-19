@@ -38,10 +38,14 @@ void selection_sort(int *array, size_t size)
 				low_index = j;
 
 		if (*(array + low_index) < *(array + i))
+		{
 			swap((array + i), (array + low_index));
+			print_array(array, length);
+		}
 		else
 			low_index = i + 1;
 
-		print_array(array, length);
+
+
 	}
 }
