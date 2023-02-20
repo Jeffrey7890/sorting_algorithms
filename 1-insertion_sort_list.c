@@ -1,62 +1,60 @@
 #include "sort.h"
 
-/**
- * insertion_sort_list - function that sorts a list using insertion sort algo
- *
- * @list: a double linked list to be sorted.
- */
 
+/**
+ * swap - swaps two nodes in list
+ *
+ * @firstNode: the first node to swap
+ * @secondNode: second node to swap
+ */
+void swap(listint_t *firstNode, listint_t *secondNode)
+{
+	if (firstNode->prev)
+		firstNode->prev->next = secondNode;
+	if (secondNode->next)
+		secondNode->next->prev = firstNode;
+
+	firstNode->next = secondNode->next;
+	secondNode->prev = firstNode->prev;
+
+	firstNode->prev = secondNode;
+	secondNode->next = firstNode;
+}
+
+/**
+ * insertion_sort_list - implements the insertion sort algorithm
+ *
+ * @list: doubly linked list to sort
+ */
 void insertion_sort_list(listint_t **list)
 {
+	listint_t *traversePtr, *temporyPtr;
 
-	listint_t *new_l, *temp;
-
-	if (!list || !(*list) || (!((*list)->prev) && !((*list)->next)))
+	if (!list || !(*list) || (!(*list)->prev && !(*list)->next))
 		return;
 
-	new_l = *list;
+	traversePtr = *list;
 
-	/*Move forward*/
-	while (new_l->next)
+	while (traversePtr->next)
 	{
-		if (new_l->n > new_l->next->n)
+		if (traversePtr->n > traversePtr->next->n)
 		{
-
-			temp = new_l->next;
-			swap_pos(new_l, new_l->next);
-			if (!temp->prev)
-				*list = temp;
+			temporyPtr = traversePtr->next;
+			swap(traversePtr, traversePtr->next);
+			if (!temporyPtr->prev)
+				*list = temporyPtr;
 			print_list(*list);
-			/*Move backwards*/
-			while (temp->prev && (temp->prev)->n > (temp)->n)
+
+			while (temporyPtr->prev && (temporyPtr->prev)->n > temporyPtr->n)
 			{
-				swap_pos(temp->prev, temp);
-				if (!temp->prev)
-					*list = temp;
+				swap(temporyPtr->prev, temporyPtr);
+				if (!temporyPtr->prev)
+					*list = temporyPtr;
 				print_list(*list);
 			}
-			new_l = temp;
+			traversePtr = temporyPtr;
 		}
-		new_l = new_l->next;
+		traversePtr = traversePtr->next;
 	}
 }
 
-/**
- * swap_pos -  function that swaps two double-linked list nodes
- *
- * @A: node to be swapped
- * @B: node to be swapped
- */
-void swap_pos(listint_t *A, listint_t *B)
-{
-	if (A->prev)
-		A->prev->next = B;
-	if (B->next)
-		B->next->prev = A;
-
-	A->next = B->next;
-	B->prev = A->prev;
-
-	A->prev = B;
-	B->next = A;
-}
