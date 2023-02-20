@@ -42,7 +42,6 @@ void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
 /* helper functions */
-void printKnuthSeq(knuthStack_t *knuth);
 void freeSequence(knuthStack_t *knuth);
 
 #endif
