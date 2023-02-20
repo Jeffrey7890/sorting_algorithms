@@ -88,6 +88,8 @@ void shell_sort(int *array, size_t size)
 
 	int temp;
 
+	if (array == NULL)
+		return;
 	if (size < 2)
 		return;
 
