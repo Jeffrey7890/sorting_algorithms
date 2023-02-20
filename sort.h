@@ -20,12 +20,13 @@ typedef struct listint_s
 
 
 /**
- * knuthStack_s - linked list stack for knuth sequence
+ * struct knuthStack_s - linked list stack for knuth sequence
  *
  * @knuthNumber: numbers in the sequence
  * @next: next pointer in stack
  */
-typedef struct knuthStack_s{
+typedef struct knuthStack_s
+{
 	int knuthNumber;
 	struct knuthStack_s *next;
 } knuthStack_t;
