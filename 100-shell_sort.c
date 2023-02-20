@@ -20,6 +20,27 @@ double _pow(double number, double exponent)
 }
 
 /**
+ * freeSequence - frees the knuthStack
+ * @knuth: head of knuth sequence
+ */
+void freeSequence(knuthStack_t *knuth)
+{
+	knuthStack_t *traversePtr = knuth;
+
+	while (knuth != NULL)
+	{
+		traversePtr = knuth;
+		knuth = knuth->next;
+
+
+		free(traversePtr);
+		traversePtr = NULL;
+	}
+	free(knuth);
+}
+
+
+/**
  * knuthSeqAlgorithm - generated the knuth sequence
  * reverse order
  * @size: size of array
