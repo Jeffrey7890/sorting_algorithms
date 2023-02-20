@@ -35,6 +35,7 @@ typedef struct knuthStack_s
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
+void swap_pos(listint_t *A, listint_t *B);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 
