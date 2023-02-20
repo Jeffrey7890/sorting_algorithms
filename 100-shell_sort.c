@@ -91,6 +91,9 @@ void shell_sort(int *array, size_t size)
 	if (size < 2)
 		return;
 
+	if (array == NULL)
+		return;
+
 	traverse = Sequence;
 
 	while (traverse != NULL)
