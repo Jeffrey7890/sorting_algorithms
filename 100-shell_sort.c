@@ -82,7 +82,7 @@ knuthStack_t *knuthSeqAlgorithm(size_t size)
  */
 void shell_sort(int *array, size_t size)
 {
-	knuthStack_t *Sequence = knuthSeqAlgorithm(size), *traverse;
+	knuthStack_t *Sequence, *traverse;
 
 	size_t gap, i, j;
 
@@ -91,9 +91,7 @@ void shell_sort(int *array, size_t size)
 	if (size < 2)
 		return;
 
-	if (array == NULL)
-		return;
-
+	Sequence = knuthSeqAlgorithm(size);
 	traverse = Sequence;
 
 	while (traverse != NULL)
