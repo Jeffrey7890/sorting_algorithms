@@ -18,14 +18,31 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+
+/**
+ * knuthStack_s - linked list stack for knuth sequence
+ *
+ * @knuthNumber: numbers in the sequence
+ * @next: next pointer in stack
+ */
+typedef struct knuthStack_s{
+	int knuthNumber;
+	struct knuthStack_s *next;
+} knuthStack_t;
+
 /* sorting algorithms */
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void shell_sort(int *array, size_t size);
 
 /* printing functions */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
+
+/* helper functions */
+void printKnuthSeq(knuthStack_t *knuth);
+void freeSequence(knuthStack_t *knuth);
 
 #endif
