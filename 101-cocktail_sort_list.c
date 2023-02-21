@@ -18,7 +18,8 @@ void cocktail_sort_list(listint_t **list)
 
 	do {
 		swapped = 0;
-		traversePtr = fowardTrav(*list, traversePtr, &swapped);
+		traversePtr = fowardTrav(list, traversePtr, &swapped);
+
 		if (swapped == 0)
 			break;
 		traversePtr = backwardTrav(list, traversePtr, &swapped);
@@ -33,7 +34,7 @@ void cocktail_sort_list(listint_t **list)
  * @swapped: flag to set if swap occurs
  * Return: pointer to listint_t structure
  */
-listint_t *fowardTrav(listint_t *list, listint_t *traversePtr, int *swapped)
+listint_t *fowardTrav(listint_t **list, listint_t *traversePtr, int *swapped)
 {
 	while (traversePtr != NULL)
 	{
@@ -41,10 +42,14 @@ listint_t *fowardTrav(listint_t *list, listint_t *traversePtr, int *swapped)
 		{
 			swap(traversePtr, traversePtr->next);
 			*swapped = 1;
-			print_list(list);
+			if (traversePtr->prev->prev == NULL)
+				*list = traversePtr->prev;
+			print_list(*list);
 		}
 		else
+		{
 			traversePtr = traversePtr->next;
+		}
 		if (traversePtr->next == NULL)
 			break;
 	}
@@ -91,6 +96,7 @@ listint_t *backwardTrav(listint_t **list, listint_t *traversePtr, int *swapped)
  */
 int swap(listint_t *firstNode, listint_t *secondNode)
 {
+
 	if (firstNode->prev)
 		firstNode->prev->next = secondNode;
 	if (secondNode->next)
