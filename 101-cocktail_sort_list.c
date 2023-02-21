@@ -42,8 +42,6 @@ listint_t *fowardTrav(listint_t **list, listint_t *traversePtr, int *swapped)
 		{
 			swap(traversePtr, traversePtr->next);
 			*swapped = 1;
-			if (traversePtr->prev->prev == NULL)
-				*list = traversePtr->prev;
 			print_list(*list);
 		}
 		else
