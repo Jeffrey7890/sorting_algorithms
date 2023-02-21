@@ -38,12 +38,17 @@ void selection_sort(int *array, size_t size);
 void swap_pos(listint_t *A, listint_t *B);
 void quick_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 
 /* printing functions */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 
 /* helper functions */
+
+listint_t *fowardTrav(listint_t *list, listint_t *traversePtr, int *swapped);
+listint_t *backwardTrav(listint_t **list, listint_t *traversePtr, int *);
+int swap(listint_t *firstNode, listint_t *secondNode);
 void freeSequence(knuthStack_t *knuth);
 
 #endif
