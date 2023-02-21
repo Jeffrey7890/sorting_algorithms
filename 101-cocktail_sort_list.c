@@ -9,10 +9,12 @@ void cocktail_sort_list(listint_t **list)
 {
 	int swapped;
 
-	listint_t *traversePtr = *list;
+	listint_t *traversePtr;
 
-	if (!list || !*list || !(*list)->next || (!(*list)->prev && !(*list)->next))
+	if (!list || !(*list) || (!(*list)->prev && !(*list)->next))
 		return;
+
+	traversePtr = *list;
 
 	do {
 		swapped = 0;
