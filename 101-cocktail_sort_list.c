@@ -45,9 +45,7 @@ listint_t *fowardTrav(listint_t **list, listint_t *traversePtr, int *swapped)
 			print_list(*list);
 		}
 		else
-		{
 			traversePtr = traversePtr->next;
-		}
 		if (traversePtr->next == NULL)
 			break;
 	}
