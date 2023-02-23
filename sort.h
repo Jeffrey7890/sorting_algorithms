@@ -46,9 +46,8 @@ void print_list(const listint_t *list);
 
 /* helper functions */
 
-listint_t *fowardTrav(listint_t *list, listint_t *traversePtr, int *swapped);
+listint_t *fowardTrav(listint_t **list, listint_t *traversePtr, int *swapped);
 listint_t *backwardTrav(listint_t **list, listint_t *traversePtr, int *);
-int swap(listint_t *firstNode, listint_t *secondNode);
 void freeSequence(knuthStack_t *knuth);
 
 #endif
