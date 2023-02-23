@@ -38,7 +38,6 @@ void bubble_sort(int *array, size_t size)
 
 		size--;
 
-<<<<<<< HEAD
         if (swapped == 0)
             return;
     }
