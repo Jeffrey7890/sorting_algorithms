@@ -1,6 +1,31 @@
 #include "sort.h"
 #include <stdio.h>
 
+
+
+/**
+ * swap - swaps two adjacent nodes in doubly linked list
+ * @firstNode: pointer to first node
+ * @secondNode: pointer to second node to swap
+ * Return: int if successful
+ */
+int swap(listint_t *firstNode, listint_t *secondNode)
+{
+
+	if (firstNode->prev)
+		firstNode->prev->next = secondNode;
+	if (secondNode->next)
+		secondNode->next->prev = firstNode;
+
+	firstNode->next = secondNode->next;
+	secondNode->prev = firstNode->prev;
+
+	firstNode->prev = secondNode;
+	secondNode->next = firstNode;
+
+	return (1);
+}
+
 /**
  * cocktail_sort_list - sorts a list using cocktail sort
  * @list: doubly linked list of unordered int
@@ -84,25 +109,4 @@ listint_t *backwardTrav(listint_t **list, listint_t *traversePtr, int *swapped)
 }
 
 
-/**
- * swap - swaps two adjacent nodes in doubly linked list
- * @firstNode: pointer to first node
- * @secondNode: pointer to second node to swap
- * Return: int if successful
- */
-int swap(listint_t *firstNode, listint_t *secondNode)
-{
 
-	if (firstNode->prev)
-		firstNode->prev->next = secondNode;
-	if (secondNode->next)
-		secondNode->next->prev = firstNode;
-
-	firstNode->next = secondNode->next;
-	secondNode->prev = firstNode->prev;
-
-	firstNode->prev = secondNode;
-	secondNode->next = firstNode;
-
-	return (1);
-}
